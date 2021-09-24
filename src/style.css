@@ -32,7 +32,8 @@ body {
 	line-height: 1;
     height: 100vh;
     width: 100vw;
-    /* background-image:url('./images/Group-rolling-dice.jpg'); */
+    text-align: center;
+    background-image:url('./images/Group-rolling-dice.jpg');
     background-repeat: no-repeat;
     background-position:center;
     background-size: cover;
@@ -89,7 +90,6 @@ li {
 li a{
     display: block;
     color:black;
-    text-align: center;
     text-decoration: none;
     padding:0.25em 0.25em;
     font-size: 2em;
@@ -103,7 +103,44 @@ a:hover{
     background-color: #1A1A1D;
 }
 
-@media screen and (min-width: 600px) {
+#infoContent{
+    display: flex;
+    height:60%;
+    flex-direction: column;
+    color: white;
+    background: #1A1A1D;
+    opacity: 0.75;
+    
+}
+
+#title{
+    font-size: 2em;
+    padding: 0.5em 0.5em;
+}
+
+#contentBody{
+    font-size: 1.5em;
+}
+
+footer {
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    height: 10%;
+    font-size: 1.5em;
+    color: white;
+    background-color: #1A1A1D;
+  }
+
+  footer >h1{
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 600px) {
     ul {
         display: flex;
         flex-direction: row;
@@ -113,6 +150,11 @@ a:hover{
         display: block;
         width: 25%;
     }
-
+    #infoContent{
+        display:block;
+        width: 75%;
+        height: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
-
