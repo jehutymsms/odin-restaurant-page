@@ -8,4 +8,4 @@ import {headNav} from './headNav';
 // Logic to Clear Contents Section in this File
 //then run function depending on button pressed for element creation
 
-headNav.headCreate()
+// headNav.headCreate()

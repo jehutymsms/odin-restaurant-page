@@ -3,8 +3,7 @@ export const headNav = (() =>{
     const cacheDom = (()=>{
         let contentBody = document.getElementById('content')
         return {contentBody:contentBody}
-    })()
-    
+    })() 
     // Function List
     const newElement = (item)=>{
         let element = document.createElement(item.tag);
@@ -81,13 +80,9 @@ export const headNav = (() =>{
             tag: 'h1',
             htmlString: 'Made By Thiefs Guild'
         })
-
         footer.appendChild(footerString);
-
         render.domAppend(footer);
-
     }
-
     // Header and Navigation Creation
     const headCreate = () =>{
         headerSection('Gambler\s Den');
@@ -95,7 +90,6 @@ export const headNav = (() =>{
         infoContentSection();
         footerSection();
     }
-
     // Render to DOM
     const render = (()=> {
         const domAppend = (item) =>{
@@ -103,7 +97,5 @@ export const headNav = (() =>{
         }
         return{domAppend:domAppend}
     })()
-    
-
     return {headCreate:headCreate}
 })()

@@ -28,10 +28,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
+html, body {
 	line-height: 1;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     text-align: center;
     background-image:url('./images/Group-rolling-dice.jpg');
     background-repeat: no-repeat;
@@ -105,15 +105,17 @@ li {
 
 #infoContent{
     display: flex;
-    height:60%;
+    height: 55%;
     flex-direction: column;
     color: white;
     background: #1A1A1D;
     opacity: 0.75;
-    
+    overflow: auto;
 }
 
 #title{
+    margin: 0;
+    top: 50%;
     font-size: 2em;
     padding: 0.5em 0.5em;
 }
@@ -122,9 +124,18 @@ li {
     font-size: 1.5em;
 }
 
+.menu{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto; 
+    column-gap: 10px;
+    row-gap: 15px;
+
+}
+
 footer {
     position: absolute;
-    bottom: 1px;
+    bottom: 0;
     width: 100%;
     height: 10%;
     font-size: 1.5em;
@@ -152,7 +163,7 @@ footer {
     }
     #infoContent{
         display:block;
-        width: 75%;
+        width: 80%;
         height: 70%;
         margin-left: auto;
         margin-right: auto;
