@@ -32,6 +32,7 @@ html, body {
 	line-height: 1;
     height: 100%;
     width: 100%;
+    color: white;
     text-align: center;
     background-image:url('./images/Group-rolling-dice.jpg');
     background-repeat: no-repeat;
@@ -73,7 +74,7 @@ header{
 
 header >h1{
     color: #C3073F;
-    font-size: 2.7em;
+    font-size: 2.7rem;
 }
 
 #navigation{
@@ -84,15 +85,15 @@ header >h1{
 
 li {
     border-style: solid;
-    border-width: 0.1em;
+    border-width: 0.1rem;
 }
 
 .tabButton {
     display: block;
     color:black;
     text-decoration: none;
-    padding:0.25em 0.25em;
-    font-size: 2em;
+    padding:0.25rem 0.25rem;
+    font-size: 1.5rem;
     background-color:#950740;
     width: 100%;
     height: 100%;
@@ -107,50 +108,65 @@ li {
     display: flex;
     height: 55%;
     flex-direction: column;
-    color: white;
     background: #1A1A1D;
     opacity: 0.75;
     overflow: auto;
 }
 
+#infoContentMenu{
+    display: flex;
+    height: 60%;
+    flex-direction: column;
+    align-items: center;
+    background: #1A1A1D;
+    opacity: 0.95;
+    overflow: auto;
+}
+
 #title{
     margin: 0;
-    top: 50%;
     font-size: 2em;
-    padding: 0.5em 0.5em;
+    padding: 0.5rem 0.5rem;
 }
 
 #contentBody{
-    font-size: 1.5em;
+    font-size: 1rem;
 }
 
 .menu{
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.5rem;
 }
 
-
+.menu > h1{
+    width: 50%;
+    margin: auto;
+    padding: 1em 0.2rem 0.2rem;
+    font-size: 1.5rem;
+}
+.itemTitle{
+    font-size: 1.2rem;
+}
 
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 10%;
-    font-size: 1.5em;
-    color: white;
+    font-size: 1.5rem;
     background-color: #1A1A1D;
   }
 
-  footer >h1{
+footer >h1{
     margin: 0;
     position: relative;
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
+}
 
-  @media screen and (min-width: 600px) {
+@media screen and (min-width: 37.5rem) {
     ul {
         display: flex;
         flex-direction: row;
@@ -160,11 +176,21 @@ footer {
         display: block;
         width: 25%;
     }
-    #infoContent{
+    #infoContent ,#infoContentMenu{
         display:block;
         width: 80%;
         height: 70%;
         margin-left: auto;
         margin-right: auto;
+    }
+    #infoContentMenu{
+        display: flex;
+        max-width: 45%;
+        height: 60%;
+        margin-top: 2rem;
+        justify-content: center;
+    }
+    .menu > h1{
+        padding: 0.2rem 0.2rem;
     }
 }
