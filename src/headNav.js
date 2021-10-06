@@ -54,25 +54,25 @@ export const headNav = (() =>{
         render.domAppend(navigation)
     }
     //Info Content Section
-    const infoContentSection = ()=>{
-        let infoContent = newElement({tag:'div',id:'infoContent'}),
-        title = newElement({tag:'div',id:'title'}),
-        titleString = newElement({tag:'h1',htmlString:'About'}),
-        contentBody = newElement({tag:'div', id:'contentBody'}),
-        contentString = newElement({
-            tag:'p',
-            htmlString:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati nisi accusantium excepturi eos error aliquam ad, provident quod eum? Deleniti.'
-        })
+    // const infoContentSection = ()=>{
+    //     let infoContent = newElement({tag:'div',id:'infoContent'}),
+    //     title = newElement({tag:'div',id:'title'}),
+    //     titleString = newElement({tag:'h1',htmlString:'About'}),
+    //     contentBody = newElement({tag:'div', id:'contentBody'}),
+    //     contentString = newElement({
+    //         tag:'p',
+    //         htmlString:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati nisi accusantium excepturi eos error aliquam ad, provident quod eum? Deleniti.'
+    //     })
 
 
-        title.appendChild(titleString);
-        infoContent.appendChild(title);
-        contentBody.appendChild(contentString);
-        infoContent.appendChild(contentBody);
+    //     title.appendChild(titleString);
+    //     infoContent.appendChild(title);
+    //     contentBody.appendChild(contentString);
+    //     infoContent.appendChild(contentBody);
 
-        render.domAppend(infoContent)
+    //     render.domAppend(infoContent)
 
-    }
+    // }
     //Footer Section
     const footerSection = () =>{
         let footer = newElement({tag:'footer'}),
@@ -87,7 +87,7 @@ export const headNav = (() =>{
     const headCreate = () =>{
         headerSection('Gambler\s Den');
         navBarsSection();
-        infoContentSection();
+        // infoContentSection();
         footerSection();
     }
     // Render to DOM

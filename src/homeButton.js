@@ -3,11 +3,12 @@
 //Home button function should create the elements with a function
 
 
-export const home = (() =>{
+export const homeButton = (() =>{
     // Cache Dom
     const cacheDom = (()=>{
-        let contentBody = document.getElementById('contentBody')
-        return {contentBody:contentBody}
+        let contentBody = document.getElementById('content'),
+        navigation = document.getElementById('content')
+        return {contentBody:contentBody,navigation:navigation}
     })()
     
     // Function List
@@ -19,12 +20,46 @@ export const home = (() =>{
         return element;
     }
     
-    
+    //About Content Section
+    const homeContentSection = ()=>{
+        let homeContent = newElement({tag:'div',id:'infoContent'}),
+        title = newElement({tag:'div',id:'title'}),
+        titleString = newElement({tag:'h1',htmlString:'About'}),
+        contentBody = newElement({tag:'div', id:'contentBody'}),
+        contentString = newElement({
+            tag:'p',
+            htmlString:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati nisi accusantium excepturi eos error aliquam ad, provident quod eum? Deleniti.'
+        })
+
+
+        title.appendChild(titleString);
+        homeContent.appendChild(title);
+        contentBody.appendChild(contentString);
+        homeContent.appendChild(contentBody);
+
+        render.insertAfter(homeContent,cacheDom.contentBody.children[1])
+
+    }
+    const homeCreate = () =>{
+        homeContentSection();
+    }
 
     // Render to DOM
     const render = (()=> {
-
+        const insertAfter = (newNode, existingNode) =>{
+            existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+        }
+        return{insertAfter:insertAfter}
     })()
 
-    return {print:print}
+    let contentBody = document.getElementById('content'),
+    children = contentBody.children
+
+    const hello =()=>{
+        console.log(cacheDom.navigation)
+        console.log(children)
+        console.log(contentBody.children[1])
+    }
+
+    return {homeCreate:homeCreate,hello:hello}
 })()
