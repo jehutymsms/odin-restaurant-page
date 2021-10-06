@@ -103,6 +103,10 @@ li {
     background-color: #1A1A1D;
 }
 
+.hover{
+    color: white;
+    background-color: #1A1A1D;
+}
 
 #infoContent{
     display: flex;
@@ -143,9 +147,13 @@ li {
     width: 50%;
     margin: auto;
     padding: 1em 0.2rem 0.2rem;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e5e4e2;
 }
 .itemTitle{
+    color: #C3073F;
+    font-weight: bold;
     font-size: 1.2rem;
 }
 
@@ -177,9 +185,10 @@ footer >h1{
         width: 25%;
     }
     #infoContent ,#infoContentMenu{
-        display:block;
+        display:flex;
         width: 80%;
         height: 70%;
+        justify-content: center;
         margin-left: auto;
         margin-right: auto;
     }
@@ -191,6 +200,9 @@ footer >h1{
         justify-content: center;
     }
     .menu > h1{
+        font-size: 2.5rem;
+        font-weight: bold;
         padding: 0.2rem 0.2rem;
+        color: #e5e4e2;
     }
 }
