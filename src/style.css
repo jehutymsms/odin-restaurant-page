@@ -77,15 +77,28 @@ header >h1{
     font-size: 2.7rem;
 }
 
+#navigationContainer{
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+
 #navigation{
     list-style-type: none;
     overflow: hidden;
-    background-color: #333;
+    flex-grow: 1;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 li {
     border-style: solid;
     border-width: 0.1rem;
+    width: 25%;
 }
 
 .tabButton {
@@ -110,8 +123,9 @@ li {
 
 #infoContent{
     display: flex;
-    height: 55%;
+    height: 60%;
     flex-direction: column;
+    justify-content: center;
     background: #1A1A1D;
     opacity: 0.75;
     overflow: auto;
@@ -175,12 +189,7 @@ footer >h1{
 }
 
 @media screen and (min-width: 37.5rem) {
-    ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    li{
+    li {
         display: block;
         width: 25%;
     }

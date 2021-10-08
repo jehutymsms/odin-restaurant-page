@@ -55,11 +55,5 @@ export const homeButton = (() =>{
     let contentBody = document.getElementById('content'),
     children = contentBody.children
 
-    const hello =()=>{
-        console.log(cacheDom.navigation)
-        console.log(children)
-        console.log(contentBody.children[1])
-    }
-
-    return {homeCreate:homeCreate,hello:hello}
+    return {homeCreate:homeCreate}
 })()

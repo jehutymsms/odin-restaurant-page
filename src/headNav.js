@@ -37,7 +37,8 @@ export const headNav = (() =>{
     }
     //Navigation Buttons
     const navBarsSection = () => {
-        let navigation = newElement({tag:'div', id:'navigation'}),
+        let navigationContainer = newElement({tag:'div', id:'navigationContainer'}),
+        navigation = newElement({tag:'div', id:'navigation'}),
         list = newElement({tag:'ul'}),
         items = [
         {id:'home',htmlString:'Home'},
@@ -51,28 +52,10 @@ export const headNav = (() =>{
             list.appendChild(itemsList[i])
         }
         navigation.appendChild(list)
-        render.domAppend(navigation)
+        navigationContainer.appendChild(navigation)
+        render.domAppend(navigationContainer)
     }
-    //Info Content Section
-    // const infoContentSection = ()=>{
-    //     let infoContent = newElement({tag:'div',id:'infoContent'}),
-    //     title = newElement({tag:'div',id:'title'}),
-    //     titleString = newElement({tag:'h1',htmlString:'About'}),
-    //     contentBody = newElement({tag:'div', id:'contentBody'}),
-    //     contentString = newElement({
-    //         tag:'p',
-    //         htmlString:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati nisi accusantium excepturi eos error aliquam ad, provident quod eum? Deleniti.'
-    //     })
 
-
-    //     title.appendChild(titleString);
-    //     infoContent.appendChild(title);
-    //     contentBody.appendChild(contentString);
-    //     infoContent.appendChild(contentBody);
-
-    //     render.domAppend(infoContent)
-
-    // }
     //Footer Section
     const footerSection = () =>{
         let footer = newElement({tag:'footer'}),
