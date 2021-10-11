@@ -7,7 +7,7 @@ export const headNav = (() =>{
     // Function List
     const newElement = (item)=>{
         let element = document.createElement(item.tag);
-        if(item.cLass){element.classList = item.cLass;}
+        if(item.classId){element.classList = item.classId;}
         if(item.id){element.id = item.id;}
         if(item.htmlString){element.innerHTML = item.htmlString;}
         return element;
@@ -26,7 +26,7 @@ export const headNav = (() =>{
             let listItem = newElement({tag:'li'}),
             item = newElement({
                 tag: 'button',
-                cLass: 'tabButton', 
+                classId: 'tabButton', 
                 id: array[i].id,
                 htmlString: array[i].htmlString
             });

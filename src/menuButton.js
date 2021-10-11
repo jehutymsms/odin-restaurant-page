@@ -13,34 +13,67 @@ export const menuButton = (() =>{
     // Function List
     const newElement = (item)=>{
         let element = document.createElement(item.tag);
-        if(item.cLass){element.classList = item.cLass;}
+        if(item.classId){element.classList = item.cLass;}
         if(item.id){element.id = item.id;}
         if(item.htmlString){element.innerHTML = item.htmlString;}
         return element;
     }
     
     //Menu Content Section
-    const homeContentSection = ()=>{
-        let homeContent = newElement({tag:'div',id:'infoContent'}),
-        title = newElement({tag:'div',id:'title'}),
-        titleString = newElement({tag:'h1',htmlString:'About'}),
-        contentBody = newElement({tag:'div', id:'contentBody'}),
-        contentString = newElement({
-            tag:'p',
-            htmlString:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati nisi accusantium excepturi eos error aliquam ad, provident quod eum? Deleniti.'
-        })
+    const menuContentSection = ()=>{
+        let infoContentMenu = newElement({tag:'div',id:'infoContentMenu'}),
+        contentBody = newElement({tag:'div',id:'contentBody',classId:'menu'})
 
-
-        title.appendChild(titleString);
-        homeContent.appendChild(title);
-        contentBody.appendChild(contentString);
-        homeContent.appendChild(contentBody);
-
-        render.insertAfter(homeContent,cacheDom.contentBody.children[1])
+        infoContentMenu.appendChild(contentBody)
+        
+        render.insertAfter(infoContentMenu,cacheDom.contentBody.children[1])
 
     }
+
+    const menuDetailElements = (menulist) =>{
+
+    }
+
+    let menuList = {
+        menuTitles:['Drink','Food'],
+        drink:{
+            item1:{
+                title: 'Ale',
+                descript: 'It\'s Better than water'
+            },
+            item2:{
+                title: 'Wine',
+                descript: 'Red'
+            },
+            item3:{
+                title: 'Cider',
+                descript: 'Made from apples that have not rotted'
+            }
+        },
+        food:{
+            item1:{
+                title: 'Stew',
+                descript: 'Meat Vegetables and Broth'
+            },
+            item2:{
+                title: 'Roast Goose',
+                descript: 'Butchered Fresh to Order'
+            },
+            item3:{
+                title: 'Fancy Feast',
+                descript: 'Finest Meat, Cheese, Fruits, and Nuts'
+            },
+            item4:{
+                title: 'Commoner\'s Feast',
+                descript: 'Whatever is left of the Fancy Feast'
+            }
+        }
+    }
+
     const menuCreate = () =>{
-        homeContentSection();
+        // menuContentSection();
+        console.log(Object.keys(menuList.food).length);
+        
     }
 
     // Render to DOM
