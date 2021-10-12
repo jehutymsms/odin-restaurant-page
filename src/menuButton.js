@@ -5,15 +5,14 @@
 export const menuButton = (() =>{
     // Cache Dom
     const cacheDom = (()=>{
-        let contentBody = document.getElementById('content'),
-        navigation = document.getElementById('content')
-        return {contentBody:contentBody,navigation:navigation}
+        let contentBody = document.getElementById('content')
+        return {contentBody:contentBody}
     })()
     
     // Function List
     const newElement = (item)=>{
         let element = document.createElement(item.tag);
-        if(item.classId){element.classList = item.cLass;}
+        if(item.classId){element.classList = item.classId;}
         if(item.id){element.id = item.id;}
         if(item.htmlString){element.innerHTML = item.htmlString;}
         return element;
@@ -30,8 +29,15 @@ export const menuButton = (() =>{
 
     }
 
-    const menuDetailElements = (menulist) =>{
+    const menuDetailElements = () =>{
+        let elementList = [];
 
+        for(let i =0; i< menuList.menuTitles.length ;i++){
+            let test = newElement({tag:'h1', htmlString:menuList.menuTitles[i]})
+            elementList.push(test)
+        }
+
+        return elementList
     }
 
     let menuList = {
@@ -71,8 +77,14 @@ export const menuButton = (() =>{
     }
 
     const menuCreate = () =>{
-        // menuContentSection();
-        console.log(Object.keys(menuList.food).length);
+        menuContentSection();
+        let list = menuList.menuTitles[0].toLowerCase()
+        // console.log(list);
+        // console.log(Object.keys(menuList[menuList.menuTitles[0].toLowerCase()]));
+        // console.log(children[1]);
+        for(let i =0; i<menuDetailElements().length; i++){
+            render.insertAfter(menuDetailElements()[i], document.getElementById('contentBody'))
+        }
         
     }
 
@@ -85,6 +97,7 @@ export const menuButton = (() =>{
     })()
 
     let contentBody = document.getElementById('content'),
+    // use this with insert after function for menu creation
     children = contentBody.children
 
 

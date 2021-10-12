@@ -12,7 +12,7 @@ import {menuButton} from './menuButton';
 
 headNav.headCreate()
 // homeButton.homeCreate()
-// menuButton.menuCreate()
+menuButton.menuCreate()
 
 
 // let contentBody = document.getElementById('content'),
