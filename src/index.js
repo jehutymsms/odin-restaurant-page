@@ -2,6 +2,7 @@ import './style.css';
 import {headNav} from './headNav';
 import {homeButton} from './homeButton';
 import {menuButton} from './menuButton';
+import {contactButton} from './contactButton';
 // What Needs to be done
 // Create a bare-bones homepage for a restaurant. 
 // Include an image, headline, and some copy about how wonderful the restaurant is. 
@@ -12,8 +13,8 @@ import {menuButton} from './menuButton';
 
 headNav.headCreate()
 // homeButton.homeCreate()
-menuButton.menuCreate()
-
+// menuButton.menuCreate()
+contactButton.contactCreate()
 
 // let contentBody = document.getElementById('content'),
 // home = document.getElementById('home'),

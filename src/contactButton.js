@@ -1,3 +1,75 @@
 // Logic for Contact button function
 // listener will be in index.js file
 //Home button function should create the elements with a function
+export const contactButton = (() => {
+    // Cache Dom
+    const cacheDom = (() => {
+        let contentBody = document.getElementById('content'),
+            navigation = document.getElementById('content');
+        return { contentBody: contentBody, navigation: navigation };
+    })()
+
+    // Function List
+    const newElement = (item) => {
+        let element = document.createElement(item.tag);
+        if (item.cLass) { element.classList = item.cLass; };
+        if (item.id) { element.id = item.id; };
+        if (item.htmlString) { element.innerHTML = item.htmlString; };
+        return element;
+    }
+
+    let contactInfo = {
+        item0: {
+            phone: {
+                info: '123-456-7891',
+            }
+        },
+        item1: {
+            email: {
+                info: 'backstab@steal.com',
+            },
+        }
+    };
+
+    const contactDetailItems = () => {
+        let list = {};
+        for (let i = 0; i < Object.keys(contactInfo).length; i++) {
+            
+        };
+    };
+
+    //About Content Section
+    const contactContentSection = () => {
+        let contactContent = newElement({ tag: 'div', id: 'infoContent' }),
+            title = newElement({ tag: 'div', id: 'title' }),
+            titleString = newElement({ tag: 'h1', htmlString: 'Contact Us' }),
+            contentBody = newElement({ tag: 'div', id: 'contentBody' }),
+            contentString = newElement({
+                tag: 'p',
+                htmlString: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati nisi accusantium excepturi eos error aliquam ad, provident quod eum? Deleniti.'
+            });
+
+
+        title.appendChild(titleString);
+        contactContent.appendChild(title);
+        contentBody.appendChild(contentString);
+        contactContent.appendChild(contentBody);
+
+        render.insertAfter(contactContent, cacheDom.contentBody.children[1]);
+
+    }
+    const contactCreate = () => {
+        contactContentSection();
+    }
+
+    // Render to DOM
+    const render = (() => {
+        const insertAfter = (newNode, existingNode) => {
+            existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+        }
+        return { insertAfter: insertAfter };
+    })()
+
+
+    return { contactCreate: contactCreate };
+})()

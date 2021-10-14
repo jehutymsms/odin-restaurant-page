@@ -2,142 +2,130 @@
 // listener will be in index.js file
 //Home button function should create the elements with a function
 
-export const menuButton = (() =>{
+export const menuButton = (() => {
     // Menu
     let menuList = {
-        menuTitles:['Drink','Food'],
-        drink:{
-            item0:{
+        menuTitles: ['Drink', 'Food'],
+        drink: {
+            item0: {
                 title: 'Ale',
                 descript: 'It\'s Better than water'
             },
-            item1:{
+            item1: {
                 title: 'Wine',
                 descript: 'Red'
             },
-            item2:{
+            item2: {
                 title: 'Cider',
                 descript: 'Made from apples that have not rotted'
             }
         },
-        food:{
-            item0:{
+        food: {
+            item0: {
                 title: 'Stew',
                 descript: 'Meat Vegetables and Broth'
             },
-            item1:{
+            item1: {
                 title: 'Roast Goose',
                 descript: 'Butchered Fresh to Order'
             },
-            item2:{
+            item2: {
                 title: 'Fancy Feast',
                 descript: 'Finest Meat, Cheese, Fruits, and Nuts'
             },
-            item3:{
+            item3: {
                 title: 'Commoner\'s Feast',
                 descript: 'Whatever is left of the Fancy Feast'
             }
         }
-    }
+    };
     // Cache Dom
-    const cacheDom = (()=>{
+    const cacheDom = (() => {
         let contentBody = document.getElementById('content')
-        return {contentBody:contentBody}
-    })()  
+        return { contentBody: contentBody }
+    })();
     // Function List
-    const newElement = (item)=>{
+    const newElement = (item) => {
         let element = document.createElement(item.tag);
-        if(item.classId){element.classList = item.classId;}
-        if(item.id){element.id = item.id;}
-        if(item.htmlString){element.innerHTML = item.htmlString;}
+        if (item.classId) { element.classList = item.classId; };
+        if (item.id) { element.id = item.id; };
+        if (item.htmlString) { element.innerHTML = item.htmlString; };
         return element;
-    }
-    
+    };
+
     //Menu Content Section
-    const menuContentSection = ()=>{
-        let infoContentMenu = newElement({tag:'div',id:'infoContentMenu'}),
-        contentBody = newElement({tag:'div',id:'contentBody',classId:'menu'})
+    const menuContentSection = () => {
+        let infoContentMenu = newElement({ tag: 'div', id: 'infoContentMenu' }),
+            contentBody = newElement({ tag: 'div', id: 'contentBody', classId: 'menu' });
 
-        infoContentMenu.appendChild(contentBody)
-        
-        render.insertAfter(infoContentMenu,cacheDom.contentBody.children[1])
+        infoContentMenu.appendChild(contentBody);
 
-    }
+        render.insertAfter(infoContentMenu, cacheDom.contentBody.children[1]);
+
+    };
 
     // return a list of Elements based on Menu array
-    const menuDetailElements = (array) =>{
+    const menuDetailElements = (array) => {
         let elementList = [];
 
-        for(let i =0; i< array.menuTitles.length ;i++){
-            let element = newElement({tag:'h1', htmlString:array.menuTitles[i]}),
-            detailItems = menuDetailItems(array[array.menuTitles[i].toLowerCase()])
-            elementList.push(element)
-            // Modify this to loop over object 
-            for(let x = 0;x< detailItems.length;x++){
-                elementList.push(detailItems[i])
+        for (let i = 0; i < array.menuTitles.length; i++) {
+            let element = newElement({ tag: 'h1', htmlString: array.menuTitles[i] }),
+                detailItems = menuDetailItems(array[array.menuTitles[i].toLowerCase()]);
+
+            elementList.push(element);
+
+            for (let x = 0; x < Object.keys(detailItems).length; x++) {
+                elementList.push(detailItems[`item${x}`]);
             }
         }
-
-        return elementList
+        return elementList;
     }
 
     //Returns and array of Item Elements
-    const menuDetailItems = (array) =>{
-        // possible return an object to solve duplication problem
-        // console.log(Object.keys(array).length)
-        let list = [],
-        list2 = {};
-        for(let i =0; i < Object.keys(array).length; i++){
+    const menuDetailItems = (array) => {
+        let list = {};
+        for (let i = 0; i < Object.keys(array).length; i++) {
             let details = array[`item${i}`],
-            container = newElement({
-                tag:'div',
+                container = newElement({
+                    tag: 'div',
                 }),
-            title = newElement({
-                tag:'p',
-                classId:'itemTitle',
-                htmlString:details.title
-            }),
-            descript = newElement({
-                tag:'p',
-                htmlString:details.descript
-            })
-            // console.log(title.innerHTML)
-            container.appendChild(title)
-            // console.log(descript.innerHTML)
-            container.appendChild(descript)
-            list.push(container)
-            list2[`item${i}`] = container;
+                title = newElement({
+                    tag: 'p',
+                    classId: 'itemTitle',
+                    htmlString: details.title
+                }),
+                descript = newElement({
+                    tag: 'p',
+                    htmlString: details.descript
+                });
+            container.appendChild(title);
+            container.appendChild(descript);
+            list[`item${i}`] = container;
         }
-        console.log(list2)
-        return list
+
+        return list;
     }
 
-    const menuCreate = () =>{
+    const menuCreate = () => {
         menuContentSection();
-        let list = menuList.menuTitles[0].toLowerCase(),
-        menuDetails = menuDetailElements(menuList),
-        contentBody = document.getElementById('contentBody')
-        
-        for(let i =0; i<menuDetails.length; i++){
-            render.insertInside(menuDetails[i], contentBody)
-        }
-        // console.log(menuList[list][`item1`].title)
+        let menuDetails = menuDetailElements(menuList),
+            contentBody = document.getElementById('contentBody');
 
-        // console.log(list);
-        // console.log(Object.keys(menuList[menuList.menuTitles[0].toLowerCase()]));
-        // console.log(children[1]);  
+        for (let i = 0; i < menuDetails.length; i++) {
+            render.insertInside(menuDetails[i], contentBody);
+        }
     }
 
     // Render to DOM
-    const render = (()=> {
-        const insertAfter = (newNode, existingNode) =>{
+    const render = (() => {
+        const insertAfter = (newNode, existingNode) => {
             existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
         }
         const insertInside = (element, existingElement) => {
-            existingElement.appendChild(element)
+            existingElement.appendChild(element);
         }
-        return{insertAfter:insertAfter,insertInside:insertInside}
+        return { insertAfter: insertAfter, insertInside: insertInside };
     })()
 
-    return {menuCreate:menuCreate}
+    return { menuCreate: menuCreate };
 })()
