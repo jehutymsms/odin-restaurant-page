@@ -4,9 +4,8 @@
 export const contactButton = (() => {
     // Cache Dom
     const cacheDom = (() => {
-        let contentBody = document.getElementById('content'),
-            navigation = document.getElementById('content');
-        return { contentBody: contentBody, navigation: navigation };
+        let contentBody = document.getElementById('content')
+        return { contentBody: contentBody};
     })()
 
     // Function List
@@ -19,6 +18,7 @@ export const contactButton = (() => {
     }
 
     let contactInfo = {
+        contactTitles: ['phone', 'email'],
         item0: {
             phone: {
                 info: '123-456-7891',
@@ -30,29 +30,37 @@ export const contactButton = (() => {
             },
         }
     };
-
-    const contactDetailItems = () => {
+    // List of Contact Elements
+    const contactDetailItems = (array) => {
         let list = {};
-        for (let i = 0; i < Object.keys(contactInfo).length; i++) {
-            
+        for (let i = 0; i < array.contactTitles.length; i++) {
+            let details = array[`item${i}`],
+                info = newElement({
+                    tag: 'p',
+                    htmlString: details[`${array.contactTitles[i]}`].info
+                })
+            list[`item${i}`] = info;
         };
+        return list 
     };
 
     //About Content Section
     const contactContentSection = () => {
-        let contactContent = newElement({ tag: 'div', id: 'infoContent' }),
-            title = newElement({ tag: 'div', id: 'title' }),
+        let contactContent = newElement({ tag: 'div', id: 'infoContactContent' }),
+            title = newElement({ tag: 'div', id: 'titleContact' }),
             titleString = newElement({ tag: 'h1', htmlString: 'Contact Us' }),
             contentBody = newElement({ tag: 'div', id: 'contentBody' }),
-            contentString = newElement({
-                tag: 'p',
-                htmlString: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati nisi accusantium excepturi eos error aliquam ad, provident quod eum? Deleniti.'
-            });
+            contentString = contactDetailItems(contactInfo);
+
+            for (let i = 0; i < Object.keys(contentString).length; i++) {
+                contentBody.appendChild(contentString[`item${i}`])
+
+            };
 
 
         title.appendChild(titleString);
         contactContent.appendChild(title);
-        contentBody.appendChild(contentString);
+        // contentBody.appendChild(contentString);
         contactContent.appendChild(contentBody);
 
         render.insertAfter(contactContent, cacheDom.contentBody.children[1]);

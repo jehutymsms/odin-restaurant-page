@@ -11,7 +11,42 @@ import {contactButton} from './contactButton';
 // Logic to Clear Contents Section in this File
 //then run function depending on button pressed for element creation
 
-headNav.headCreate()
+
+const main = (() =>{
+    headNav.headCreate()
+    const cacheDom = (() => {
+        let navigationContainer = document.getElementById('navigationContainer'),
+        home = document.getElementById('home'),
+        menu = document.getElementById('menu'),
+        contact = document.getElementById('contact')
+
+        return { navigationContainer: navigationContainer,home:home,menu:menu,contact:contact };
+    })()
+    
+    const bindEvents = () => {
+        cacheDom.home.addEventListener('click', homeButton.homeCreate())
+        cacheDom.menu.addEventListener('click', menuButton.menuCreate())
+        cacheDom.contact.addEventListener('click', contactButton.contactCreate())
+    }
+
+    const render = (() =>{
+        const test = () => {
+            console.log(document.getElementById('content').childNodes)
+            console.log(document.getElementById('navigationContainer').nextSibling)
+        }
+        return {test:test}
+    })()
+
+    render.test()
+
+})()
+
+
+
+
+
+
+
 // homeButton.homeCreate()
 // menuButton.menuCreate()
 contactButton.contactCreate()

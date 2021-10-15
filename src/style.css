@@ -131,6 +131,16 @@ li {
     overflow: auto;
 }
 
+#infoContactContent{
+    display: flex;
+    height: 60%;
+    flex-direction: column;
+    justify-content: center;
+    background: #1A1A1D;
+    opacity: 0.75;
+    overflow: auto;
+}
+
 #infoContentMenu{
     display: flex;
     height: 60%;
@@ -142,6 +152,12 @@ li {
 }
 
 #title{
+    margin: 0;
+    font-size: 2em;
+    padding: 0.5rem 0.5rem;
+}
+
+#titleContact{
     margin: 0;
     font-size: 2em;
     padding: 0.5rem 0.5rem;
@@ -193,7 +209,7 @@ footer >h1{
         display: block;
         width: 25%;
     }
-    #infoContent ,#infoContentMenu{
+    #infoContent ,#infoContentMenu,#infoContactContent{
         display:flex;
         width: 80%;
         height: 70%;
@@ -208,6 +224,7 @@ footer >h1{
         margin-top: 2rem;
         justify-content: center;
     }
+    
     .menu > h1{
         font-size: 2.5rem;
         font-weight: bold;

@@ -101,10 +101,10 @@ export const menuButton = (() => {
             container.appendChild(title);
             container.appendChild(descript);
             list[`item${i}`] = container;
-        }
+        };
 
         return list;
-    }
+    };
 
     const menuCreate = () => {
         menuContentSection();
