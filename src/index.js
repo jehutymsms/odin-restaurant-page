@@ -1,8 +1,8 @@
 import './style.css';
-import {headNav} from './headNav';
-import {homeButton} from './homeButton';
-import {menuButton} from './menuButton';
-import {contactButton} from './contactButton';
+import { headNav } from './headNav';
+import { homeButton } from './homeButton';
+import { menuButton } from './menuButton';
+import { contactButton } from './contactButton';
 // What Needs to be done
 // Create a bare-bones homepage for a restaurant. 
 // Include an image, headline, and some copy about how wonderful the restaurant is. 
@@ -12,32 +12,46 @@ import {contactButton} from './contactButton';
 //then run function depending on button pressed for element creation
 
 
-const main = (() =>{
+const main = (() => {
     headNav.headCreate()
+    homeButton.homeCreate()
+
     const cacheDom = (() => {
         let navigationContainer = document.getElementById('navigationContainer'),
-        home = document.getElementById('home'),
-        menu = document.getElementById('menu'),
-        contact = document.getElementById('contact')
+            home = document.getElementById('home'),
+            menu = document.getElementById('menu'),
+            contact = document.getElementById('contact')
 
-        return { navigationContainer: navigationContainer,home:home,menu:menu,contact:contact };
+        return { navigationContainer: navigationContainer, home: home, menu: menu, contact: contact };
     })()
-    
+
     const bindEvents = () => {
-        cacheDom.home.addEventListener('click', homeButton.homeCreate())
-        cacheDom.menu.addEventListener('click', menuButton.menuCreate())
-        cacheDom.contact.addEventListener('click', contactButton.contactCreate())
+        cacheDom.home.addEventListener('click', function () {
+            removeCurAddNew(homeButton.homeCreate)
+        })
+        cacheDom.menu.addEventListener('click', function () {
+            removeCurAddNew(menuButton.menuCreate)
+        })
+        cacheDom.contact.addEventListener('click', function () {
+            removeCurAddNew(contactButton.contactCreate)
+        })
     }
 
-    const render = (() =>{
-        const test = () => {
-            console.log(document.getElementById('content').childNodes)
-            console.log(document.getElementById('navigationContainer').nextSibling)
+    const render = (() => {
+        const removePrev = () => {
+            navigationContainer.nextSibling.remove()
         }
-        return {test:test}
+        return { removePrev: removePrev }
     })()
 
-    render.test()
+    // Function list
+    const removeCurAddNew = (New) => {
+        render.removePrev() 
+        New()
+    }
+
+    bindEvents()
+
 
 })()
 
@@ -49,7 +63,7 @@ const main = (() =>{
 
 // homeButton.homeCreate()
 // menuButton.menuCreate()
-contactButton.contactCreate()
+// contactButton.contactCreate()
 
 // let contentBody = document.getElementById('content'),
 // home = document.getElementById('home'),
