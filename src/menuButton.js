@@ -41,8 +41,8 @@ export const menuButton = (() => {
     };
     // Cache Dom
     const cacheDom = (() => {
-        let contentBody = document.getElementById('content')
-        return { contentBody: contentBody }
+        let contentBody = document.getElementById('content');
+        return { contentBody: contentBody };
     })();
     // Function List
     const newElement = (item) => {

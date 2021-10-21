@@ -1,9 +1,9 @@
 export const headNav = (() => {
     // Cache Dom
     const cacheDom = (() => {
-        let contentBody = document.getElementById('content')
+        let contentBody = document.getElementById('content');
         return { contentBody: contentBody };
-    })()
+    })();
     // Function List
     const newElement = (item) => {
         let element = document.createElement(item.tag);

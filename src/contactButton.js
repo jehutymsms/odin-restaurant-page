@@ -4,9 +4,9 @@
 export const contactButton = (() => {
     // Cache Dom
     const cacheDom = (() => {
-        let contentBody = document.getElementById('content')
-        return { contentBody: contentBody};
-    })()
+        let contentBody = document.getElementById('content');
+        return { contentBody: contentBody };
+    })();
 
     // Function List
     const newElement = (item) => {
@@ -15,7 +15,7 @@ export const contactButton = (() => {
         if (item.id) { element.id = item.id; };
         if (item.htmlString) { element.innerHTML = item.htmlString; };
         return element;
-    }
+    };
 
     let contactInfo = {
         contactTitles: ['phone', 'email'],
@@ -38,10 +38,10 @@ export const contactButton = (() => {
                 info = newElement({
                     tag: 'p',
                     htmlString: details[`${array.contactTitles[i]}`].info
-                })
+                });
             list[`item${i}`] = info;
         };
-        return list 
+        return list;
     };
 
     //About Content Section
@@ -52,15 +52,13 @@ export const contactButton = (() => {
             contentBody = newElement({ tag: 'div', id: 'contentBody' }),
             contentString = contactDetailItems(contactInfo);
 
-            for (let i = 0; i < Object.keys(contentString).length; i++) {
-                contentBody.appendChild(contentString[`item${i}`])
-
-            };
+        for (let i = 0; i < Object.keys(contentString).length; i++) {
+            contentBody.appendChild(contentString[`item${i}`]);
+        };
 
 
         title.appendChild(titleString);
         contactContent.appendChild(title);
-        // contentBody.appendChild(contentString);
         contactContent.appendChild(contentBody);
 
         render.insertAfter(contactContent, cacheDom.contentBody.children[1]);
@@ -68,7 +66,7 @@ export const contactButton = (() => {
     }
     const contactCreate = () => {
         contactContentSection();
-    }
+    };
 
     // Render to DOM
     const render = (() => {
@@ -76,8 +74,8 @@ export const contactButton = (() => {
             existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
         }
         return { insertAfter: insertAfter };
-    })()
+    })();
 
 
     return { contactCreate: contactCreate };
-})()
+})();

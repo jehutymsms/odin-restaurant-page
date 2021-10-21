@@ -13,47 +13,47 @@ import { contactButton } from './contactButton';
 
 
 const main = (() => {
-    headNav.headCreate()
-    homeButton.homeCreate()
+    headNav.headCreate();
+    homeButton.homeCreate();
 
     const cacheDom = (() => {
         let navigationContainer = document.getElementById('navigationContainer'),
             home = document.getElementById('home'),
             menu = document.getElementById('menu'),
-            contact = document.getElementById('contact')
+            contact = document.getElementById('contact');
 
         return { navigationContainer: navigationContainer, home: home, menu: menu, contact: contact };
-    })()
+    })();
 
     const bindEvents = () => {
         cacheDom.home.addEventListener('click', function () {
-            removeCurAddNew(homeButton.homeCreate)
+            removeCurAddNew(homeButton.homeCreate);
         })
         cacheDom.menu.addEventListener('click', function () {
-            removeCurAddNew(menuButton.menuCreate)
+            removeCurAddNew(menuButton.menuCreate);
         })
         cacheDom.contact.addEventListener('click', function () {
-            removeCurAddNew(contactButton.contactCreate)
+            removeCurAddNew(contactButton.contactCreate);
         })
     }
 
     const render = (() => {
         const removePrev = () => {
-            navigationContainer.nextSibling.remove()
+            navigationContainer.nextSibling.remove();
         }
-        return { removePrev: removePrev }
+        return { removePrev: removePrev };
     })()
 
     // Function list
     const removeCurAddNew = (New) => {
-        render.removePrev() 
-        New()
+        render.removePrev();
+        New();
     }
 
-    bindEvents()
+    bindEvents();
 
 
-})()
+})();
 
 
 

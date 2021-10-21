@@ -9,7 +9,7 @@ export const homeButton = (() => {
         let contentBody = document.getElementById('content'),
             navigation = document.getElementById('content');
         return { contentBody: contentBody, navigation: navigation };
-    })()
+    })();
 
     // Function List
     const newElement = (item) => {
@@ -18,7 +18,7 @@ export const homeButton = (() => {
         if (item.id) { element.id = item.id; };
         if (item.htmlString) { element.innerHTML = item.htmlString; };
         return element;
-    }
+    };
 
     //About Content Section
     const homeContentSection = () => {
